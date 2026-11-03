@@ -11,6 +11,10 @@
 Esta spec es la fuente de verdad del producto. Toda cambio funcional se propone aquí
 primero, se implementa después y se verifica contra los criterios de aceptación.
 
+> **Spec derivada:** [`spec-ventas.md`](spec-ventas.md) define la pantalla de venta y
+> cobro (cliente, tabla de ítems, glosa, hasta dos formas de pago), criterios
+> CA-V1…CA-V5, implementada en `/ventas/nueva` y verificada con `tests/sales.spec.ts`.
+
 ---
 
 ## 1. Definición del problema

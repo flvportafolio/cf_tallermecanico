@@ -2257,3 +2257,227 @@ hr {
 .reason-field {
   margin-top: 20px;
 }
+
+/* Ventas */
+.sales-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+.sale-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.sale-card,
+.sale-payment {
+  padding: 22px 24px 24px;
+}
+.sale-card h2,
+.sale-payment h2 {
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+.sale-header-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+.sale-header-grid > label:first-child {
+  grid-column: 1 / -1;
+}
+.sale-card input[readonly],
+.sale-card input[readonly]:focus {
+  color: var(--muted);
+  border-color: transparent;
+  box-shadow: var(--inset);
+}
+.sale-picker {
+  margin-bottom: 20px;
+}
+.sale-picker select {
+  font-size: 12px;
+}
+.sale-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.sale-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 650;
+  color: var(--muted);
+  padding: 0 10px 12px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.sale-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  font-size: 12px;
+}
+.sale-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.sale-table .col-nro {
+  width: 46px;
+}
+.sale-table .col-qty {
+  width: 90px;
+}
+.sale-table .col-price {
+  width: 122px;
+}
+.sale-table .col-sub {
+  width: 124px;
+}
+.sale-table .col-remove {
+  width: 46px;
+}
+.sale-table th.col-sub,
+.sale-table td.col-sub {
+  text-align: right;
+}
+.sale-table .col-item {
+  min-width: 0;
+}
+.sale-table td.col-item strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+}
+.sale-table td.col-item .badge {
+  margin-top: 5px;
+}
+.sale-table input {
+  min-height: 44px;
+  padding: 10px 9px;
+  font-size: 12px;
+}
+.sale-glosa textarea {
+  font-size: 12px;
+}
+.sale-total-box {
+  background: var(--field);
+  box-shadow: var(--inset);
+  border-radius: 12px;
+  padding: 14px 17px;
+  margin-bottom: 18px;
+}
+.sale-payment {
+  position: sticky;
+  top: 24px;
+}
+.sale-total-label {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.sale-total-value {
+  font-family: 'Manrope Variable', sans-serif;
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -1px;
+  line-height: 1.25;
+  color: var(--green);
+  margin-top: 3px;
+}
+.sale-total-coin {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.payment-row {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.payment-row:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 6px;
+}
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  padding: 6px;
+  background: var(--field);
+  box-shadow: var(--inset);
+  border-radius: 11px;
+}
+.payment-methods button {
+  min-height: 49px;
+  border-radius: 8px;
+  background: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 4px 8px;
+}
+.payment-methods button.selected {
+  background: var(--surface);
+  box-shadow: var(--shadow-small);
+  color: var(--green);
+}
+.payment-row-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 46px;
+  gap: 10px;
+  align-items: end;
+  margin-top: 10px;
+}
+.payment-row-line .icon-btn {
+  width: 46px;
+  height: 46px;
+}
+.payment-qr-demo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--field);
+  box-shadow: var(--inset);
+  border-radius: 9px;
+  padding: 10px 12px;
+}
+.sale-add-payment {
+  margin: 4px 0 0;
+}
+.payment-max {
+  font-size: 11px;
+  margin: 4px 0 0;
+}
+.sale-checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sale-checks li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.sale-checks li svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.sale-checks li.ok {
+  color: var(--green);
+  font-weight: 600;
+}
+.sale-submit {
+  margin-top: 16px;
+  min-height: 50px;
+  font-size: 12px;
+}
+/* Fin ventas */

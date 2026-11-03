@@ -68,11 +68,13 @@ Fuera de alcance hasta que una nueva spec lo decida: backend, autenticación, in
 ## Organización
 
 - `specs/taller-don-ramiro/spec.md`: definición del problema, diseño de la solución y criterios de aceptación verificables (CA-1…CA-5) con trazabilidad a código y tests.
+- `specs/taller-don-ramiro/spec-ventas.md`: spec de la pantalla de venta y cobro (cliente en combo, fecha/moneda/sucursal, TC y vendedor bloqueados, tabla de ítems con total, glosa y hasta dos formas de pago). Criterios CA-V1…CA-V5, implementada en `/ventas/nueva`.
 - `.opencode/skills/brand-design/SKILL.md`: skill de la marca neumórfica (tokens, tipografía, componentes, interacción móvil).
 - `DESIGN.md`: documentación del sistema de diseño.
 - `src/stores/workshop.ts`: datos de ejemplo, estado, persistencia y reglas del flujo.
-- `src/views/`: resumen, órdenes, cotizaciones, clientes y seguimiento.
+- `src/stores/sales.ts`: catálogo de demostración, venta en curso en memoria y validaciones del cobro.
+- `src/views/`: resumen, órdenes, cotizaciones, clientes, ventas y seguimiento.
 - `src/components/`: controles reutilizables, formularios, cotizaciones y tarjetas.
 - `src/style.css` y `src/responsive.css`: sistema visual y adaptación a celulares.
 - `src/types.ts`: contratos tipados, estados y formatos.
-- `tests/workshop.spec.ts`: recorridos funcionales de extremo a extremo que verifican la spec.
+- `tests/workshop.spec.ts` y `tests/sales.spec.ts`: recorridos funcionales de extremo a extremo que verifican las dos specs.

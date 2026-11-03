@@ -1568,3 +1568,114 @@
     display: none;
   }
 }
+
+/* Ventas: pantallas pequeñas */
+@media (max-width: 1020px) {
+  .sales-layout {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .sale-main {
+    gap: 20px;
+  }
+  .sales-layout {
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sale-card,
+  .sale-payment {
+    padding: 19px 17px 20px;
+    position: static;
+  }
+  .sale-header-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .sale-header-grid > label:first-child {
+    grid-column: 1 / -1;
+  }
+  .sale-header-grid input,
+  .sale-header-grid select,
+  .sale-picker select,
+  .sale-table input,
+  .payment-row input,
+  .sale-glosa textarea {
+    font-size: 16px;
+  }
+  .sale-table input {
+    min-height: 48px;
+  }
+  .sale-total-value {
+    font-size: 34px;
+  }
+  .sale-submit {
+    min-height: 54px;
+  }
+  /* La tabla pasa a filas apiladas, sin scroll horizontal. */
+  .sale-table thead {
+    display: none;
+  }
+  .sale-table,
+  .sale-table tbody,
+  .sale-table tr,
+  .sale-table td {
+    display: block;
+    width: 100%;
+  }
+  .sale-table tr {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sale-table tbody tr:last-child {
+    border-bottom: 0;
+    padding-bottom: 3px;
+  }
+  .sale-table td {
+    border: 0;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sale-table td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 650;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .sale-table td.col-qty input,
+  .sale-table td.col-price input {
+    width: 45%;
+    min-width: 110px;
+  }
+  .sale-table td.col-item {
+    display: block;
+    padding-bottom: 9px;
+  }
+  .sale-table td.col-item::before {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .sale-table td.col-item strong {
+    font-size: 13px;
+  }
+  .sale-table td.col-remove {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .sale-table td.col-remove::before {
+    content: none;
+  }
+  .sale-table .icon-btn {
+    width: 49px;
+    height: 49px;
+  }
+  .payment-row {
+    padding: 14px 0;
+  }
+}
+/* Fin ventas */

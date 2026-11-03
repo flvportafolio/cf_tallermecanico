@@ -17,6 +17,7 @@ const nav = [
   { to: '/', icon: 'dashboard', title: 'Resumen' },
   { to: '/ordenes', icon: 'orders', title: 'Órdenes de trabajo' },
   { to: '/cotizaciones', icon: 'file', title: 'Cotizaciones' },
+  { to: '/ventas/nueva', icon: 'sales', title: 'Ventas' },
   { to: '/clientes', icon: 'users', title: 'Clientes' },
 ] as const
 const isPublic = computed(() => route.meta.public)
