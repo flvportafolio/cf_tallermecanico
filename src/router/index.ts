@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../views/DashboardView.vue'
 import OrdersView from '../views/OrdersView.vue'
 import OrderDetailView from '../views/OrderDetailView.vue'
@@ -7,7 +7,7 @@ import CustomersView from '../views/CustomersView.vue'
 import TrackingView from '../views/TrackingView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 export default createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   scrollBehavior: () => ({ top: 0 }),
   routes: [
     { path: '/', component: DashboardView, meta: { title: 'Resumen' } },

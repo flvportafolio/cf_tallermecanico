@@ -70,7 +70,7 @@ recibido → diagnóstico → por aprobar (waiting) → reparación → listo �
 
 | Capa | Implementación | Archivo |
 | --- | --- | --- |
-| Enrutado | Hash history (alojamiento estático sin redirects); rutas con `meta.title` y `meta.public` | `src/router/index.ts` |
+| Enrutado | History mode (`createWebHistory`): URLs limpias sin `#`, con fallback del servidor a `index.html`; rutas con `meta.title` y `meta.public` | `src/router/index.ts` |
 | Estado | Único store Pinia `workshop`: clientes, órdenes, cotizaciones, mecánicos, toasts; getters y acciones con las reglas del flujo | `src/stores/workshop.ts` |
 | Contratos | Tipos `Status`, `Customer`, `Order`, `Quote`, mapa canónico `statuses` y formateadores `money`/`dateTime` (es-BO) | `src/types.ts` |
 | Persistencia | `localStorage` clave `don-ramiro-workshop-v1`, con restauración validada y aviso si falla | `src/stores/workshop.ts` |
@@ -96,7 +96,7 @@ Cada criterio es verificable con los tests E2E existentes (`npm run test:e2e`, p
 
 | # | Criterio | Verificación |
 | --- | --- | --- |
-| CA-1 | **Seguimiento sin llamadas.** Dado el enlace público `/#/seguimiento/:token`, el cliente ve el estado actual del vehículo, su bitácora y las cotizaciones pendientes sin iniciar sesión; el shell del taller no se muestra. Un token inválido muestra un estado de enlace no disponible. | Test `dashboard, navigation, filters and responsive layout` y `search, mechanic filter and unknown tracking link...`; ruta con `meta.public` en `src/router/index.ts`. |
+| CA-1 | **Seguimiento sin llamadas.** Dado el enlace público `/seguimiento/:token`, el cliente ve el estado actual del vehículo, su bitácora y las cotizaciones pendientes sin iniciar sesión; el shell del taller no se muestra. Un token inválido muestra un estado de enlace no disponible. | Test `dashboard, navigation, filters and responsive layout` y `search, mechanic filter and unknown tracking link...`; ruta con `meta.public` en `src/router/index.ts`. |
 | CA-2 | **Aprobación registrada e innegable.** Dada una cotización pendiente en el portal, al aprobarla el sistema exige nombre completo y confirmación; la decisión queda visible como «Aprobado por \<nombre\>», la orden avanza a *En reparación*, el botón de aprobar desaparece y el registro **persiste tras recargar** la página. | Test `client approval is explicit, recorded and persists after reload`; acción `decideQuote` en el store. |
 | CA-3 | **Rechazo con motivo.** Dado un rechazo en el portal, el sistema registra firmante, fecha y motivo, el motivo queda visible en el registro de decisión y la orden vuelve a *En diagnóstico*. | Test `rejected quote records the reason and returns the vehicle to diagnosis`. |
 | CA-4 | **Bloqueo de avance con cotización pendiente.** Mientras una orden tenga cotización pendiente, no se ofrece ni se ejecuta el avance a reparación, listo o entregado; la restricción se aplica en el store, no solo en la vista. | Test `new order, additional quote, customer approval and delivery work end to end` (verifica que el botón «Comenzar reparación» no existe tras cotizar); `changeStatus` en `src/stores/workshop.ts`. |

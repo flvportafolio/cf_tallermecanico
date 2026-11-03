@@ -22,7 +22,7 @@ npm run preview
 
 ## Stack
 
-Vue 3 con Composition API, TypeScript estricto, Vue Router, Pinia y Vite. Iconos Lucide, fuentes Manrope y DM Sans alojadas en el proyecto. Las rutas usan hash para permitir alojamiento estático sin configuración de redirecciones.
+Vue 3 con Composition API, TypeScript estricto, Vue Router, Pinia y Vite. Iconos Lucide, fuentes Manrope y DM Sans alojadas en el proyecto. El enrutado usa el modo history (`createWebHistory`): las URLs son limpias, sin `#`, y el servidor debe resolver cualquier ruta a `index.html` (Vite ya lo hace en `dev` y `preview`; en producción se configura con un fallback, p. ej. `try_files $uri /index.html` en nginx o `"rewrites"` en `vercel.json`).
 
 ## Flujo disponible
 
@@ -36,7 +36,7 @@ Vue 3 con Composition API, TypeScript estricto, Vue Router, Pinia y Vite. Iconos
 - Clientes con búsqueda e historial, búsqueda de órdenes y filtro por responsable.
 - Persistencia local, avisos, estados vacíos y manejo de enlaces inválidos.
 
-Para probar la experiencia del cliente, abre una orden y selecciona **Ver portal del cliente**. También puedes visitar `/#/seguimiento/demo-1047`, que incluye una cotización pendiente.
+Para probar la experiencia del cliente, abre una orden y selecciona **Ver portal del cliente**. También puedes visitar `/seguimiento/demo-1047`, que incluye una cotización pendiente.
 
 ## Alcance de la demo
 

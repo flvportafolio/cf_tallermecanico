@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useWorkshop } from '../stores/workshop'
 import { dateTime, statuses } from '../types'
 import type { Status } from '../types'
@@ -12,6 +12,7 @@ import QuoteSummary from '../components/QuoteSummary.vue'
 import AppModal from '../components/AppModal.vue'
 import NotFoundView from './NotFoundView.vue'
 const route = useRoute(),
+  router = useRouter(),
   store = useWorkshop()
 const order = computed(() => store.orders.find((o) => o.id === route.params.id))
 const quotes = computed(() => store.quotes.filter((q) => q.orderId === order.value?.id))
@@ -19,7 +20,7 @@ const quoteForm = ref(false),
   share = ref(false),
   note = ref('')
 const trackingLink = computed(
-  () => `${location.origin}${location.pathname}#/seguimiento/${order.value?.token}`,
+  () => `${location.origin}${router.resolve(`/seguimiento/${order.value?.token}`).href}`,
 )
 const nextStatus = computed<Status | undefined>(
   () =>

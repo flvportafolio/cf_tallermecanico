@@ -20,7 +20,7 @@ test('dashboard, navigation, filters and responsive layout', async ({ page }, te
     '/ordenes/OT-1047',
     '/seguimiento/demo-1047',
   ]) {
-    await page.goto(`/#${path}`)
+    await page.goto(path)
     await expect(page.locator('h1')).toBeVisible()
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
   }
@@ -29,7 +29,7 @@ test('dashboard, navigation, filters and responsive layout', async ({ page }, te
 })
 
 test('client approval is explicit, recorded and persists after reload', async ({ page }) => {
-  await page.goto('/#/seguimiento/demo-1047')
+  await page.goto('/seguimiento/demo-1047')
   await page.getByRole('button', { name: /^Aprobar/ }).click()
   const dialog = page.getByRole('dialog')
   const confirm = dialog.getByRole('button', { name: 'Confirmar aprobación' })
@@ -44,13 +44,13 @@ test('client approval is explicit, recorded and persists after reload', async ({
   await page.reload()
   await expect(page.getByText('Aprobado por Roberto Salinas', { exact: true })).toBeVisible()
   await expect(page.getByRole('button', { name: /^Aprobar/ })).toHaveCount(0)
-  await page.goto('/#/ordenes/OT-1047')
+  await page.goto('/ordenes/OT-1047')
   await expect(page.getByText('Aprobado por Roberto Salinas', { exact: true })).toBeVisible()
   await expect(page.locator('.detail-main > section').first()).toContainText('En reparación')
 })
 
 test('rejected quote records the reason and returns the vehicle to diagnosis', async ({ page }) => {
-  await page.goto('/#/seguimiento/demo-1044')
+  await page.goto('/seguimiento/demo-1044')
   await page.getByRole('button', { name: 'No aprobar', exact: true }).click()
   await page.getByLabel('Tu nombre completo').fill('María Quispe')
   await page.getByLabel('Cuéntanos el motivo').fill('Prefiero revisar otra alternativa.')
@@ -102,7 +102,7 @@ test('new order, additional quote, customer approval and delivery work end to en
 })
 
 test('search, mechanic filter and unknown tracking link have useful states', async ({ page }) => {
-  await page.goto('/#/ordenes?q=4825')
+  await page.goto('/ordenes?q=4825')
   await expect(page.locator('.order-card')).toHaveCount(1)
   await expect(page.locator('.order-card')).toContainText('Toyota Corolla')
   await page.getByLabel('Buscar órdenes', { exact: true }).fill('no-existe')
@@ -112,7 +112,7 @@ test('search, mechanic filter and unknown tracking link have useful states', asy
   await page.getByLabel('Filtrar por mecánico').selectOption('m3')
   await expect(page.locator('.order-card')).toHaveCount(1)
   await expect(page.locator('.order-card')).toContainText('Kia Sportage')
-  await page.goto('/#/seguimiento/unknown')
+  await page.goto('/seguimiento/unknown')
   await expect(page.getByRole('heading', { name: 'Este enlace no está disponible' })).toBeVisible()
 })
 
